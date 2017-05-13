@@ -37,6 +37,6 @@ public class Date implements Comparable<Date> {
 
     @Override
     public String toString() {
-        return "Date{" + "day=" + day + ", month=" + month + '}';
+        return String.format("{\"day\":%d,\"month\":%d}", day, month);
     }
 }

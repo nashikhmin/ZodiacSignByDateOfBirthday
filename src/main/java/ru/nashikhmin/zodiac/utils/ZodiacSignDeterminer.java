@@ -12,7 +12,7 @@ public class ZodiacSignDeterminer {
         ARIES(new Date(21, 3), new Date(19, 4)),
         TAURUS(new Date(20, 4), new Date(20, 5)),
         GEMINI(new Date(21, 5), new Date(20, 6)),
-        CANSER(new Date(21, 6), new Date(22, 7)),
+        CANCER(new Date(21, 6), new Date(22, 7)),
         LEO(new Date(23, 7), new Date(22, 8)),
         VIRGO(new Date(23, 8), new Date(22, 9)),
         LIBRA(new Date(23, 9), new Date(22, 10)),

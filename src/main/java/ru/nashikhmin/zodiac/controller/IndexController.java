@@ -1,16 +1,15 @@
 package ru.nashikhmin.zodiac.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller that implement controller for index page
+ */
 @Controller
 public class IndexController {
-
     @RequestMapping("/")
     public String index() {
         return "index";
     }
-
 }
