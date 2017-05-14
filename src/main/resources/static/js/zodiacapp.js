@@ -12,7 +12,7 @@ $(document).ready(collapseNavbar);
 
 // handler menu click
 $(function () {
-    $('a.page-scroll').bind('click', function (event) {
+    $('a.page-scroll').bind('click', function () {
         var $anchor = $(this);
         scrollTo($anchor.attr('href'));
     });
@@ -35,11 +35,18 @@ $(document).ready(function () {
     });
 
     function ajaxPost() {
+        var stringDate = $("#date").val();
+        if (!isValidDate(stringDate)) {
+            alert("Sorry, the inputted date is incorrect . The right format of date is dd/mm.");
+            return;
+        }
+
+        var date = stringDate.val().split('/');
         // PREPARE FORM DATA
         var formData = {
-            day: 3,
-            month: 3
-        }
+            day: Number(date[0]),
+            month: Number(date[1])
+        };
 
         // DO POST
         $.ajax({
@@ -48,21 +55,21 @@ $(document).ready(function () {
             url: url + "/zodiacSign",
             data: JSON.stringify(formData),
             success: function (result) {
-                if (result.status == "DONE") {
+                if (result.status === "DONE") {
                     var sign = result.zodiacSign.toLowerCase();
                     scrollTo('#' + sign);
                 } else {
-                    alert("Wrong result!");
+                    alert("Sorry, there is an error on the server, please reload the page!");
                 }
                 console.log(result);
             },
             error: function (e) {
-                alert("Error!")
+                alert("Error!");
                 console.log("ERROR: ", e);
             }
         });
     }
-})
+});
 
 //scroll to href element
 function scrollTo(href) {
@@ -72,3 +79,24 @@ function scrollTo(href) {
     event.preventDefault();
 }
 
+
+// Validates that the input string is a valid date formatted as "dd/mm"
+function isValidDate(dateString) {
+    // First check for the pattern
+    if (!/^\d{1,2}\/\d{1,2}$/.test(dateString))
+        return false;
+
+    // Parse the date parts to integers
+    var parts = dateString.split("/");
+    var day = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10);
+
+    // Check the ranges of month and year
+    if (month <= 0 || month > 12)
+        return false;
+
+    var monthLength = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // Check the range of the day
+    return day > 0 && day <= monthLength[month - 1];
+}
