@@ -12,4 +12,4 @@ it is a Spring boot application that allows determining your zodiac sign by date
 
 ## Deployment
 The latest version of the application is deployed on Heroku.
-You can see it on [https://zodiacsign.herokuapp.com]().
+You can see it on [https://zodiacsign.herokuapp.com](https://zodiacsign.herokuapp.com).
