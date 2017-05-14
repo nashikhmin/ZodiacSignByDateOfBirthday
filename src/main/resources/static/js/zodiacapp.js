@@ -41,7 +41,7 @@ $(document).ready(function () {
             return;
         }
 
-        var date = stringDate.val().split('/');
+        var date = stringDate.split('/');
         // PREPARE FORM DATA
         var formData = {
             day: Number(date[0]),
