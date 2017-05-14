@@ -361,3 +361,40 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
+
+.date-picker-btn {
+    background-color: #0f0f17;
+    border: none;
+    margin-left: 30px;
+}
+
+.date-picker {
+    display: inline-flex;
+    margin-top: 7%;
+    margin-bottom: 14%;
+}
+
+.date-picker-label {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.date-field {
+    background: none;
+    font-size: 22px;
+    text-align: center;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px none #ffffff;
+    border-bottom-style: dashed;
+    padding: 1px;
+}
+
+.date-field:focus {
+    outline: none; /* Скрываем рамку */
+    /* Параметры границы */
+    border: 1px none #535353;
+    border-bottom-style: solid;
+    padding: 1px; /* Поля вокруг текста */
+}

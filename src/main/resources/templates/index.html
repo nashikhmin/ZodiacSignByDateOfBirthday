@@ -11,7 +11,7 @@
     <title>Zodiac Sign - Determinate your sign by date</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -71,14 +71,15 @@
                     <h1 class="brand-heading">Zodiac sign</h1>
                     <p class="intro-text">To know your zodiac sign</p>
                     <form id="dateForm">
-                        <div class="form-group">
-                            <label>Input the month and day of your birthday:</label>
-                            <input type="datetime-local" id="date" class="form-control"/>
-                            <button type="submit" id="postDateBtn" class="btn btn-primary">Submit</button>
+                        <div class="form-group date-picker">
+                            <label for="date" class="date-picker-label">Date of Birth :</label>
+                            <input id="date" type="tel" maxlength="5" class="date-field" placeholder="DD/MM"/>
+                            <button type="submit" id="postDateBtn" class="btn date-picker-btn">Check</button>
                         </div>
                     </form>
                     <div id="postResultDiv"></div>
-                    <a href="#about" class="btn btn-circle page-scroll">
+
+                    <a href="#pisces" class="btn btn-circle page-scroll">
                         <i class="fa fa-angle-double-down animated"></i>
                     </a>
 
