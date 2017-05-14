@@ -1,10 +1,9 @@
 package ru.nashikhmin.zodiac.controller;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import ru.nashikhmin.zodiac.model.Date;
+import ru.nashikhmin.zodiac.model.ZodiacSignResponse;
 import ru.nashikhmin.zodiac.utils.ZodiacSignDeterminer;
 
 /**
@@ -12,8 +11,10 @@ import ru.nashikhmin.zodiac.utils.ZodiacSignDeterminer;
  */
 @RestController
 public class RestWebController {
-    @RequestMapping(value = "/zodiacSign", method = RequestMethod.POST)
-    public String getZodiacSignByDate(@RequestBody Date date) {
-        return ZodiacSignDeterminer.getSignByDate(date).toString();
+    @RequestMapping(value = "/zodiacSign", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ZodiacSignResponse getZodiacSignByDate(@RequestBody Date date) {
+        ZodiacSignDeterminer.ZodiacSign zodiacSign = ZodiacSignDeterminer.getSignByDate(date);
+        return new ZodiacSignResponse(zodiacSign);
     }
 }

@@ -28,6 +28,7 @@ public class RestWebControllerTest {
         String json = date.toString();
         mockMvc.perform(post("/zodiacSign").contentType(MediaType.APPLICATION_JSON_UTF8).content(json))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(ZodiacSignDeterminer.ZodiacSign.AQUARIUS.toString())));
+                .andExpect(jsonPath("$.zodiacSign", is(ZodiacSignDeterminer.ZodiacSign.AQUARIUS.toString())))
+                .andExpect(jsonPath("$.status", is("DONE")));
     }
 }
