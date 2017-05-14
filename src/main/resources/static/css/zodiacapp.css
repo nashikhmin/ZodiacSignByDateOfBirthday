@@ -394,7 +394,7 @@ body {
 .date-field:focus {
     outline: none; /* Скрываем рамку */
     /* Параметры границы */
-    border: 1px none #535353;
+    border: 1px none #ffffff;
     border-bottom-style: solid;
     padding: 1px; /* Поля вокруг текста */
 }
